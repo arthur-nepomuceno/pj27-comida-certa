@@ -5,9 +5,10 @@ async function addFood(req: Request, res: Response) {
     const body = req.body
     const {name, calories, carbs, proteins, fats} = body
 
+    await foodServices.checkElementName(name)
     await foodServices.addElement(body)
 
-    return res.status(201).send(`New food added successfully.`)
+    return res.status(201).send('OK')
 }
 
 async function getFood(req: Request, res: Response) {

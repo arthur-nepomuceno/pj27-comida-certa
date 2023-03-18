@@ -13,6 +13,15 @@ async function insertElement(body: newFood) {
     })
 }
 
+async function findElementByName(name: string) {
+    return await prisma.foods.findFirst({
+        where: {
+            name
+        }
+    })
+}
+
 export {
-    insertElement
+    insertElement,
+    findElementByName
 }
