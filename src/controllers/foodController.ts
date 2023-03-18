@@ -1,8 +1,11 @@
-import {Request, Response} from "express"
+import {Request, Response} from 'express'
+import * as foodServices from '../services/foodServices.js'
 
 async function addFood(req: Request, res: Response) {
-    const body = req.body;
+    const body = req.body
     const {name, calories, carbs, proteins, fats} = body
+
+    await foodServices.addElement(body)
 
     return res.status(201).send(`New food added successfully.`)
 }
