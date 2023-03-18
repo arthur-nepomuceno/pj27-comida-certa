@@ -7,8 +7,9 @@ async function addFood(req: Request, res: Response) {
 
     await foodServices.checkElementName(name)
     await foodServices.addElement(body)
-
-    return res.status(201).send('OK')
+    
+    const element = await foodServices.getElementByName(name)
+    return res.status(201).send(element)
 }
 
 async function getFood(req: Request, res: Response) {

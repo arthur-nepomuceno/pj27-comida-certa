@@ -15,9 +15,7 @@ async function addElement(body: newFood) {
 }
 
 async function getElementByName(name: string) {
-    const register = await foodRepository.findElementByName(name)
-
-    return register
+    return await foodRepository.findElementByName(name)
 }
 
 export {
